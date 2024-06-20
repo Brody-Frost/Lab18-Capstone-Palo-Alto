@@ -20,7 +20,7 @@
   - Configure User-ID
 - Extranet: ethernet1/3
 
-#### Create security zone tags  
+#### Create security zone tags:  
 *Objects > Tags*
 
 ### <ins>Verify Network Connectivity</ins>
@@ -42,6 +42,9 @@ Source NAT:
 - Users_to_Extranet
 - Users_to_Internet
 - Extranet_to_Internet
+
+#### Create security policy tags:  
+*Objects > Tags*
 
 #### Testing security policies:
 
