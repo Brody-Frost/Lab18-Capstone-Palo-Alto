@@ -4,11 +4,15 @@
 #### Configure interfaces:  
 *Network > Interfaces > Ethernet*
 
+<img src="./Images/interfaces.png" alt="image" width="800"/>
+
 #### Configure virtual router:  
 *Network > Virtual Routers*    
 - Create a default route 0.0.0.0/0
   
   <img src="./Images/virtual-router3.PNG" alt="image" width="600"/>
+
+<img src="./Images/vr.png" alt="image" width="700"/>
 
 #### Configure interface management profile:  
 *Network > Interface Mgmt*
@@ -19,6 +23,8 @@
 - Users: ethernet1/2
   - Configure User-ID
 - Extranet: ethernet1/3
+
+<img src="./Images/security-zones.png" alt="image" width="800"/>
 
 #### Create security zone tags:  
 *Objects > Tags*
@@ -36,12 +42,16 @@ Source NAT:
 - Users_to_Internet
 - Extranet_to_Internet
 
+<img src="./Images/nat-policies.png" alt="image" width="800"/>
+
 ### <ins>Configure Security Policy Rules</ins>
 *Policies > Security*
 - Block_Bad_URLs
 - Users_to_Extranet
 - Users_to_Internet
 - Extranet_to_Internet
+
+<img src="./Images/security-policies.png" alt="image" width="1000"/>
 
 #### Create security policy tags:  
 *Objects > Tags*
