@@ -1,3 +1,6 @@
+# Lab 18 - Capstone Palo Alto Project
+
+The below configurations were performed in NETLAB to prevent any issues with the production Palo Alto firewall.
 
 ### <ins>Configure Networking</ins>
 
@@ -72,3 +75,7 @@ Source NAT:
 - WildFire Analysis: Corp-WF
 
 <img src="./Images/security-profile-group.png" alt="image" width="400"/>
+
+---
+
+The following configurations were performed using the Palo Alto production environment.
