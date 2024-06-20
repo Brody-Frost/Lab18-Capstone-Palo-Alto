@@ -12,10 +12,12 @@
   
   <img src="./Images/virtual-router3.PNG" alt="image" width="600"/>
 
-<img src="./Images/vr.png" alt="image" width="700"/>
+<img src="./Images/vr1.png" alt="image" width="700"/>
 
 #### Configure interface management profile:  
 *Network > Interface Mgmt*
+
+<img src="./Images/intf-mgmt-applied.png" alt="image" width="700"/>
 
 ### <ins>Configure Security Zones</ins>
 *Network > Zones*  
@@ -56,6 +58,8 @@ Source NAT:
 #### Create security policy tags:  
 *Objects > Tags*
 
+<img src="./Images/tags.png" alt="image" width="700"/>
+
 #### Testing security policies:
 
 ### <ins>Create and Apply Security Profiles</ins>
@@ -66,3 +70,5 @@ Source NAT:
 - URL Filtering: Corp-URL
 - File Blocking: Corp-FB
 - WildFire Analysis: Corp-WF
+
+<img src="./Images/security-profile-group.png" alt="image" width="400"/>
