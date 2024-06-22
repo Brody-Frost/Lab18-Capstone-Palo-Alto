@@ -89,9 +89,10 @@ This will enable remote web access (port 80) to the DMZ server from the internet
 *Policies > Security*
 
 - outside-to-DMZ-web
+  - Source Address: any
   - Application: Web-Browsing
 
-<img src="./Images/" alt="image" width="400"/>
+<img src="./Images/Part1&2/secpol-outside-to-dmz-http.PNG" alt="image" width="1100"/>
 
 *Policies > NAT*
 
@@ -106,28 +107,34 @@ Testing http from an Internet PC on E108 network:
 
 http://192.168.108.132
 
-<img src="./Images/Part1&2/192.168.108.132.png" alt="image" width="900"/>
+<img src="./Images/Part1&2/192.168.108.132.png" alt="image" width="900"/>  
+
+
 
 ### <ins>Part 2 - Configure and test remote management</ins>
 
-This will enable remote management access to the DMZ server from one specific IP address within the internet zone (E108 network).
-Management IP Address: 192.168.108.9
+This will enable remote management access to the DMZ server from one specific IP address within the internet zone (E108 network).  
+Remote management will be done with SSH, Remote Desktop Protocol (RDP), and MySQL remote administration (port 3306).
+
+**Management IP Address: 192.168.108.9**
+
+<img src="./Images/Part1&2/ip.PNG" alt="image" width="600"/> 
 
 #### Modifying security and NAT policy for remote management:
 
 *Policies > Security*
 
 - outside-to-DMZ-mgmt
-  - Source IP Address: 192.168.108.9
-  - Application: ms-rdp, mysql, ssh
-
+  - Source Address: 192.168.108.9
+  - Application: ms-rdp, mysql, ssh  
+ 
 *Policies > NAT*
 
 Destination NAT:
 - dstNat-outside-dmz
   - Service: any
  
-<img src="./Images/Part1&2/modified-security-policies.PNG" alt="image" width="1100"/>
+<img src="./Images/Part1&2/modified-security-policies.PNG" alt="image" width="1100"/>  
 
 
 Testing rdp from management IP to DMZ server:
