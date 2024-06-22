@@ -9,6 +9,8 @@ The below configurations were performed in NETLAB to prevent any issues with the
 
 <img src="./Images/interfaces.png" alt="image" width="800"/>
 
+*Note: management interface IP should not be changed from 192.168.1.254 on NETLAB!*
+
 #### Configure virtual router:  
 *Network > Virtual Routers*    
 - Create a default route 0.0.0.0/0
@@ -19,6 +21,7 @@ The below configurations were performed in NETLAB to prevent any issues with the
 
 #### Configure interface management profile:  
 *Network > Interface Mgmt*
+- Allow-ping: applied to E1/2 (Users zone)
 
 <img src="./Images/intf-mgmt-applied.png" alt="image" width="700"/>
 
@@ -37,8 +40,15 @@ The below configurations were performed in NETLAB to prevent any issues with the
 ### <ins>Verify Network Connectivity</ins>
 
 - Internal host can ping 192.168.100.1
-- SSH to firewall 192.168.1.1
-- insrt img firewall pings ssh cli
+- 192.168.1.1 can be accessed with Putty SSH client
+- Commands below are succesful from the firewall CLI:
+  ```
+  ping source 192.168.108.232 host 192.168.108.1
+  ping source 192.168.108.232 host 8.8.8.8
+  ping source 192.168.100.1 host 192.168.100.20
+  ping source 192.168.50.1 host 192.168.50.2
+  ping source 192.168.50.1 host 192.168.50.100
+  ```
 
 ### <ins>Configure NAT Policy Rules</ins>
 *Policies > NAT*  
@@ -65,6 +75,8 @@ Source NAT:
 
 #### Testing security policies:
 
+--Insert test images here--
+
 ### <ins>Create and Apply Security Profiles</ins>
 *Policies > Security*
 - Antivirus: Corp-AV
@@ -76,23 +88,17 @@ Source NAT:
 
 <img src="./Images/security-profile-group.png" alt="image" width="400"/>
 
+--Insert test images here--
+
 ---
 
 ## Configure Security and NAT policy to access DMZ server from Internet
-
-The following configurations were performed in the Cyber Project CSOC production environment.
+ 
+The following configurations were performed in the Cyber Project CSOC production environment.  
 
 ### <ins>Part 1 - Configure destination NAT policy and security policy</ins>
 
 This will enable remote web access (port 80) to the DMZ server from the internet zone (E108 PCs).
-
-*Policies > Security*
-
-- outside-to-DMZ-web
-  - Source Address: any
-  - Application: Web-Browsing
-
-<img src="./Images/Part1&2/secpol-outside-to-dmz-http.PNG" alt="image" width="1100"/>
 
 *Policies > NAT*
 
@@ -102,6 +108,14 @@ Destination NAT:
   
 <img src="./Images/Part1&2/dest-nat-http.PNG" alt="image" width="1100"/>
 
+*Policies > Security*
+
+- outside-to-DMZ-web
+  - Source Address: any
+  - Application: Web-Browsing
+
+<img src="./Images/Part1&2/secpol-outside-to-dmz-http.PNG" alt="image" width="1100"/>
+&nbsp;  
 
 Testing http from an Internet PC on E108 network:
 
@@ -122,20 +136,20 @@ Remote management will be done with SSH, Remote Desktop Protocol (RDP), and MySQ
 
 #### Modifying security and NAT policy for remote management:
 
-*Policies > Security*
-
-- outside-to-DMZ-mgmt
-  - Source Address: 192.168.108.9
-  - Application: ms-rdp, mysql, ssh  
- 
 *Policies > NAT*
 
 Destination NAT:
 - dstNat-outside-dmz
   - Service: any
- 
-<img src="./Images/Part1&2/modified-security-policies.PNG" alt="image" width="1100"/>  
 
+*Policies > Security*
+
+- outside-to-DMZ-mgmt
+  - Source Address: 192.168.108.9
+  - Application: ms-rdp, mysql, ssh  
+
+<img src="./Images/Part1&2/modified-security-policies.PNG" alt="image" width="1100"/>
+&nbsp;  
 
 Testing rdp from management IP to DMZ server:
 
