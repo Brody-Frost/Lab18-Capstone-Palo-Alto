@@ -78,4 +78,63 @@ Source NAT:
 
 ---
 
-The following configurations were performed using the Palo Alto production environment.
+## Configure Security and NAT policy to access DMZ server from Internet
+
+The following configurations were performed in the Cyber Project CSOC production environment.
+
+### <ins>Part 1 - Configure destination NAT policy and security policy</ins>
+
+This will enable remote web access (port 80) to the DMZ server from the internet zone (E108 PCs).
+
+*Policies > Security*
+
+- outside-to-DMZ-web
+  - Application: Web-Browsing
+
+<img src="./Images/" alt="image" width="400"/>
+
+*Policies > NAT*
+
+Destination NAT:
+- dstNat-outside-dmz
+  - Service: service-http 
+  
+<img src="./Images/" alt="image" width="400"/>
+
+
+Testing http from an Internet PC on E108 network:
+
+[http://192.168.108.132]
+
+<img src="./Images/" alt="image" width="400"/>
+
+### <ins>Part 2 - Configure and test remote management</ins>
+
+This will enable remote management access to the DMZ server from one specific IP address within the internet zone (E108 network).
+Management IP Address: 192.168.108.9
+
+#### Modifying security and NAT policy for remote management:
+
+*Policies > Security*
+
+- outside-to-DMZ-mgmt
+  - Source IP Address: 192.168.108.9
+  - Application: ms-rdp, mysql, ssh
+
+*Policies > NAT*
+
+Destination NAT:
+- dstNat-outside-dmz
+  - Service: any
+ 
+<img src="./Images/" alt="image" width="400"/>
+
+
+Testing rdp from management IP to DMZ server:
+<img src="./Images/" alt="image" width="400"/>
+
+Testing ssh from management IP to DMZ server:
+<img src="./Images/" alt="image" width="400"/>
+
+Running nmap scan from internet zone (E108 network) to DMZ server:
+<img src="./Images/" alt="image" width="400"/>
