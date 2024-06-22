@@ -99,14 +99,14 @@ Destination NAT:
 - dstNat-outside-dmz
   - Service: service-http 
   
-<img src="./Images/" alt="image" width="400"/>
+<img src="./Images/Part1&2/dest-nat-http.PNG" alt="image" width="1100"/>
 
 
 Testing http from an Internet PC on E108 network:
 
-[http://192.168.108.132]
+http://192.168.108.132
 
-<img src="./Images/" alt="image" width="400"/>
+<img src="./Images/Part1&2/192.168.108.132.png" alt="image" width="900"/>
 
 ### <ins>Part 2 - Configure and test remote management</ins>
 
@@ -127,14 +127,17 @@ Destination NAT:
 - dstNat-outside-dmz
   - Service: any
  
-<img src="./Images/" alt="image" width="400"/>
+<img src="./Images/Part1&2/modified-security-policies.PNG" alt="image" width="1100"/>
 
 
 Testing rdp from management IP to DMZ server:
-<img src="./Images/" alt="image" width="400"/>
+
+<img src="./Images/Part1&2/rdp.PNG" alt="image" width="325"/> <img src="./Images/Part1&2/rdp2.PNG" alt="image" width="680"/>
 
 Testing ssh from management IP to DMZ server:
-<img src="./Images/" alt="image" width="400"/>
+
+<img src="./Images/Part1&2/ssh.PNG" alt="image" width="600"/>
 
 Running nmap scan from internet zone (E108 network) to DMZ server:
-<img src="./Images/" alt="image" width="400"/>
+
+<img src="./Images/Part1&2/nmap.PNG" alt="image" width="600"/>
